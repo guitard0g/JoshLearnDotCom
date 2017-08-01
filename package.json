@@ -1,7 +1,7 @@
 {
-  "name": "node-js-getting-started",
+  "name": "JoshLearnDotCom",
   "version": "0.2.6",
-  "description": "A sample Node.js app using Express 4",
+  "description": "A Node.js app using Express 4 with PixiJs",
   "engines": {
     "node": "6.11.1"
   },
