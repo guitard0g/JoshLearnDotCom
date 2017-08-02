@@ -17,7 +17,11 @@
           type = "canvas"
         }
         //Create the renderer
-        var renderer = PIXI.autoDetectRenderer(256, 256);
+        console.log($(window).width());
+        console.log($(window).height());
+        console.log($(document).width());
+        console.log($(document).height());
+        var renderer = PIXI.autoDetectRenderer($(window).width() - 10, $(window).height() - 10);
 
         //Add the canvas to the HTML document
         document.body.appendChild(renderer.view);
@@ -25,8 +29,19 @@
         //Create a container object called the `stage`
         var stage = new PIXI.Container();
 
+        PIXI.loader
+          .add("detective.png")
+          .load(setup);
+
+        function setup() {
+          var sprite = new PIXI.Sprite(
+            PIXI.loader.resources["detective.png"].texture
+          );
+          stage.addChild(sprite)
+          renderer.render(stage);
+        }
+
         //Tell the `renderer` to `render` the `stage`
-        renderer.render(stage);
 
         PIXI.utils.sayHello(type)
       </script>
